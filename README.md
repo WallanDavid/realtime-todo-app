@@ -1,54 +1,112 @@
-# React + TypeScript + Vite
+# 📝 Realtime To-do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação colaborativa de tarefas com atualizações em **tempo real**, feita com:
 
-Currently, two official plugins are available:
+- **Frontend:** React + Vite + TypeScript + TailwindCSS  
+- **Backend:** Node.js + Express  
+- **WebSocket:** Socket.IO  
+- **Banco de dados:** MongoDB  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ Criar tarefas  
+✅ Marcar como concluída  
+✅ Remover tarefas  
+✅ Atualização automática em tempo real entre usuários conectados  
+✅ Layout responsivo com Tailwind CSS  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 📷 Demonstração
+
+![screenshot](https://user-images.githubusercontent.com/00000000/000000000-00000000.png)
+
+---
+
+## 🧑‍💻 Rodando localmente
+
+### 🔧 Pré-requisitos
+
+- Node.js  
+- MongoDB instalado local ou Atlas (cloud)  
+
+### 1. Clone o projeto
+
+```bash
+git clone https://github.com/WallanDavid/realtime-todo-app.git
+cd realtime-todo-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Backend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd backend
+npm install
 ```
+
+Crie o arquivo `.env`:
+
+```ini
+PORT=4000
+MONGO_URI=mongodb://localhost:27017/realtime_todo
+```
+
+> Ou use a URI do MongoDB Atlas.
+
+Inicie o servidor:
+
+```bash
+npm run dev
+```
+
+### 3. Frontend
+
+Abra outro terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Acesse: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🌐 Comunicação em tempo real
+
+A sincronização das tarefas entre todos os usuários é feita com Socket.IO, ouvindo os eventos:
+
+- `task_created`  
+- `task_updated`  
+- `task_deleted`  
+
+---
+
+## 📦 Estrutura
+
+```bash
+realtime-todo-app/
+├── backend/
+│   └── server.js, models, .env
+├── frontend/
+│   └── src/, App.tsx, Tailwind, socket.ts
+```
+
+---
+
+## 🛠️ Tecnologias usadas
+
+- React, Vite, TypeScript  
+- Tailwind CSS  
+- Node.js, Express  
+- MongoDB, Mongoose  
+- Socket.IO  
+
+---
+
+## 📄 Licença
+
+MIT © WallanDavid
