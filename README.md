@@ -19,12 +19,6 @@ Aplicação colaborativa de tarefas com atualizações em **tempo real**, feita 
 
 ---
 
-## 📷 Demonstração
-
-![screenshot](https://user-images.githubusercontent.com/00000000/000000000-00000000.png)
-
----
-
 ## 🧑‍💻 Rodando localmente
 
 ### 🔧 Pré-requisitos
